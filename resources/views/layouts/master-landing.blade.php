@@ -6,7 +6,7 @@
 
 <body>
 
-    @include('includes.header')
+    @include('includes.header-landing')
 
     @yield('content')
 

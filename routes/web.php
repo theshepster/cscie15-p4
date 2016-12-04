@@ -11,20 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', 'LandingController@index');
 
+# built-in authentication routes from `php artisan make:auth`
 Auth::routes();
 
+# home page dashboard
 Route::get('/home', 'HomeController@index');
 
+# logout
+Route::get('/logout', 'Auth\LoginController@logout');
 
+# decks
+Route::resource('decks', 'DeckController');
 
+# cards
+Route::resource('cards', 'CardController', ['except' => 'create']);
+Route::get('/cards/create/{deck_id}', 'CardController@create')->name('cards.create');
 
 /*
 |--------------------------------------------------------------------------
-| Debug Routes
+| Debug Route
 |--------------------------------------------------------------------------
 |
 | Routes for debugging various functions.
