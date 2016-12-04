@@ -17,6 +17,11 @@
                         @foreach($decks as $deck)
                             <li>
                                 <a href="/decks/{{ $deck->id }}">{{ $deck->name }}</a>
+                                <form action="/decks/{{ $deck->id }}" method="POST">
+                                    {{ method_field('DELETE') }}
+                                    {{ csrf_field() }}
+                                    <input type="submit" value="Delete">
+                                </form>
                             </li>
                         @endforeach
                     </ul>

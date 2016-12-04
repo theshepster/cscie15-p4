@@ -17,7 +17,7 @@ Route::get('/', 'LandingController@index');
 Auth::routes();
 
 # home page dashboard
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 # logout
 Route::get('/logout', 'Auth\LoginController@logout');

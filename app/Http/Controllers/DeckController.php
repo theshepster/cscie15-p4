@@ -92,6 +92,12 @@ class DeckController extends Controller
      */
     public function destroy($id)
     {
-        //
+        # delete related cards
+        Card::where('deck_id', $id)->delete();
+
+        # delete deck
+        Deck::find($id)->delete();
+
+        return redirect()->route('home');
     }
 }

@@ -13,14 +13,12 @@
                         <a href="/cards/create/{{ $deck->id }}">Create a New Card</a>
                         <br>
                         Cards in this deck:
-                        {{--TODO: add buttons for edit and delete next to each card--}}
                         {{--TODO: add buttons for Review Deck--}}
                         <ul>
                             @foreach($cards as $card)
                                 <li>
                                     {{ $card->front }}
                                     <a href="/cards/{{ $card->id }}/edit">Edit</a>
-                                    {{--TODO: make this Delete work--}}
                                     <form action="/cards/{{ $card->id }}" method="POST">
                                         {{ method_field('DELETE') }}
                                         {{ csrf_field() }}

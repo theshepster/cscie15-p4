@@ -82,7 +82,9 @@ class CardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $card = Card::find($id);
+
+        return view('pages.edit-card')->with(['card' => $card]);
     }
 
     /**
@@ -94,7 +96,12 @@ class CardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $card = Card::find($id);
+        $card->front = $request->input('front');
+        $card->back = $request->input('back');
+        $card->save();
+
+        return redirect()->route('decks.show', ['id' => $card->deck_id]);
     }
 
     /**
