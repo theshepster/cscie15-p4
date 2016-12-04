@@ -37,14 +37,13 @@ class DeckController extends Controller
      */
     public function store(Request $request)
     {
-        // TODO: Flash success message
         $deck = new Deck();
         $deck->name = $request->input('name');
         $user = \Auth::user();
         $deck->user_id = $user->id;
         $deck->save();
 
-        return redirect()->route('decks.show', [$deck]);
+        return redirect()->route('cards.create', ['deck_id' => $deck->id]);
     }
 
     /**
