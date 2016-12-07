@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class LandingController extends Controller
 {
+
     /**
      * Show the landing page if not logged in.
      * Show the application dashboard if logged in.
@@ -14,9 +15,7 @@ class LandingController extends Controller
      */
     public function index()
     {
-        $user = \Auth::user();
-
-        if ($user)
+        if (\Auth::check())
         {
             return redirect()->action('HomeController@index');
         }

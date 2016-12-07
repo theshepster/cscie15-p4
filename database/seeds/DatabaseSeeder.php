@@ -11,7 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-          # only the CardsTableSeeder needs to be called, because it generates a deck and user
+        # only the UsersTableSeeder and CardsTableSeeder need to be called,
+        # because the CardsTableSeeder generates a deck for each card
 
         $this->call(UsersTableSeeder::class);
 //        $this->call(DecksTableSeeder::class);

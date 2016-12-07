@@ -13,10 +13,21 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li @yield('login-active')>
-                            <a href="/logout">Logout</a>
-                        </li>
-
+                        @if(Auth::check())
+                            <li @yield('login-active')>
+                                <a href="/logout">Logout</a>
+                            </li>
+                        @else
+                            <li @yield('login-active')>
+                                <a href="/login">Sign In</a>
+                            </li>
+                            <li @yield('register-active')>
+                                <a href="/register">Register</a>
+                            </li>
+                            <li>
+                                <a href="http://p1.mooreberg.me">More Projects</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>

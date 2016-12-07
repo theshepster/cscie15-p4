@@ -26,7 +26,7 @@ $factory->define(App\Deck::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->word,
-        'user_id' => factory(App\User::class)->create()->id,
+        'user_id' => 1,
     ];
 });
 

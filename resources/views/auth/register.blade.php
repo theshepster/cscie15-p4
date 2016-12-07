@@ -1,4 +1,4 @@
-@extends('layouts.master-landing')
+@extends('layouts.master')
 
 @section('register-active')
     class="active"

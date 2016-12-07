@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 class DeckController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -55,9 +65,17 @@ class DeckController extends Controller
     public function show($id)
     {
         $deck = Deck::find($id);
-        $cards = Card::where('deck_id', '=', $deck->id)->get();
 
-        return view('pages.overview-deck')->with(['deck' => $deck, 'cards' => $cards]);
+        if ($deck)
+        {
+            $cards = Card::where('deck_id', '=', $deck->id)->get();
+            return view('pages.overview-deck')->with(['deck' => $deck, 'cards' => $cards]);
+        }
+        else
+        {
+            return redirect()->route('home');
+        }
+
     }
 
     /**

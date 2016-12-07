@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\Input;
 class CardController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -28,7 +38,14 @@ class CardController extends Controller
     public function create($deck_id)
     {
         $deck = Deck::find($deck_id);
-        return view('pages.create-card')->with(['deck' => $deck]);
+        if ($deck)
+        {
+            return view('pages.create-card')->with(['deck' => $deck]);
+        }
+        else
+        {
+            return redirect()->route('home');
+        }
     }
 
     /**
@@ -84,7 +101,14 @@ class CardController extends Controller
     {
         $card = Card::find($id);
 
-        return view('pages.edit-card')->with(['card' => $card]);
+        if ($card)
+        {
+            return view('pages.edit-card')->with(['card' => $card]);
+        }
+        else
+        {
+            return redirect()->route('home');
+        }
     }
 
     /**

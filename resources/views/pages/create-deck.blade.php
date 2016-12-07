@@ -1,4 +1,4 @@
-@extends('layouts.master-home')
+@extends('layouts.master')
 
 @section('content')
     <br><br><br><br><br>
@@ -14,9 +14,10 @@
                            {{ csrf_field() }}
                            <label>
                                Name of Deck:
-                               <input type="text" name="name" placeholder="My cool new deck">
-                               <input type="submit">
                            </label>
+                               <input type="text" name="name" placeholder="My cool new deck">
+                               <input type="submit" class="btn btn-success">
+
                        </form>
                     </div>
                 </div>

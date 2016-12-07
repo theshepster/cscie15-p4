@@ -6,7 +6,9 @@
 
 <body>
 
-    @include('includes.header-landing')
+    @include('includes.flash')
+
+    @include('includes.header')
 
     @yield('content')
 

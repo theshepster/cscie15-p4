@@ -1,4 +1,4 @@
-@extends('layouts.master-landing')
+@extends('layouts.master')
 
 @section('custom-head')
     <link href="{{ URL::asset('css/carousel.css') }}" rel="stylesheet">
