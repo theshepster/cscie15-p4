@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+@extends('layouts.master')
+<br><br><br><br><br>
 <!-- Main Content -->
 @section('content')
 <div class="container">
@@ -9,8 +9,8 @@
                 <div class="panel-heading">Reset Password</div>
                 <div class="panel-body">
                     @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
+                        <div class="alert alert-warning">
+                            A reset password email was sent, but it was trapped by Mailtrap.io!
                         </div>
                     @endif
 

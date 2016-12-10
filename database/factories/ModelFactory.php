@@ -25,7 +25,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Deck::class, function (Faker\Generator $faker) {
 
     return [
-        'name' => $faker->word,
+        'name' => strtoupper($faker->safeColorName),
         'user_id' => 1,
     ];
 });

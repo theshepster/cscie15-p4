@@ -73,7 +73,7 @@
                 <img class="img-circle" src="http://www.clipartkid.com/images/780/deck-of-cards-sports-and-recreation-great-clipart-for-fYbhsd-clipart.jpg" alt="Deck" width="140" height="140">
                 <h2>Decked Out</h2>
                 <p>Deck yourself before you wreck yourself.</p>
-                <p><a class="btn btn-default" href="/lorem" role="button">Deck It Out »</a></p>
+                <p><a class="btn btn-default" href="/home" role="button">Deck It Out »</a></p>
             </div>
             <!-- /.col-lg-4 -->
             <div class="col-lg-4">

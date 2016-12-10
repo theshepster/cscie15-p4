@@ -13,12 +13,13 @@
                 <br>
                     {{-- Display all existing decks --}}
                     @foreach($decks as $deck)
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="panel panel-default">
                                 <div class="panel-heading text-center">
                                     {{ $deck->name }}
                                 </div>
                                 <div class="panel-body">
+                                    <a href="/decks/review/{{ $deck->id }}" class="btn btn-info">Review</a>
                                     <a href="/decks/{{ $deck->id }}" class="btn btn-default">Edit</a>
                                     <form action="/decks/{{ $deck->id }}" method="POST" style="display: inline">
                                         {{ method_field('DELETE') }}
@@ -32,7 +33,7 @@
 
                 {{-- Create a new deck --}}
                 <div class="panel-body">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-heading text-center">
                                 <input class="input" form="create-deck" type="text" name="name" placeholder="New Deck">

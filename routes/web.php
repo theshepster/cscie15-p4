@@ -24,6 +24,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 # decks
 Route::resource('decks', 'DeckController');
+Route::get('/decks/review/{deck_id}', 'DeckController@review');
 
 # cards
 Route::resource('cards', 'CardController', ['except' => 'create']);

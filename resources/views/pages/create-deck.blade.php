@@ -12,11 +12,9 @@
                     <div class="panel-body">
                        <form method="post" action="/decks">
                            {{ csrf_field() }}
-                           <label>
-                               Name of Deck:
-                           </label>
-                               <input type="text" name="name" placeholder="My cool new deck">
-                               <input type="submit" class="btn btn-success">
+                           <input class="form-control" type="text" name="name" placeholder="Deck name">
+                           <br>
+                           <input class="btn btn-success form-control" type="submit">
 
                        </form>
                     </div>

@@ -26,7 +26,7 @@ class DeckController extends Controller
      */
     public function index()
     {
-        //
+        return redirect()->route('home');
     }
 
     /**
@@ -86,7 +86,8 @@ class DeckController extends Controller
      */
     public function edit($id)
     {
-        //
+        $deck = Deck::find($id);
+        return view('pages.edit-deck')->with(['deck' => $deck]);
     }
 
     /**
@@ -98,7 +99,11 @@ class DeckController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $deck = Deck::find($id);
+        $deck->name = $request->input('name');
+        $deck->save();
+
+        return redirect()->route('decks.show', ['id' => $id]);
     }
 
     /**
@@ -117,4 +122,28 @@ class DeckController extends Controller
 
         return redirect()->route('home');
     }
+
+    /**
+     * Review cards in the deck.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function review($id)
+    {
+        $deck = Deck::find($id);
+        $cards = Card::where('deck_id', $id)->get();
+
+        if (isset($cards[0]))
+        {
+            return view('pages.review-deck')->with(['deck' => $deck, 'cards' => $cards]);
+        }
+        else
+        {
+//            TODO: Redirect to cards.create and alert user to create the first card for this deck
+            return redirect()->route('decks.show', ['id' => $deck->id]);
+        }
+
+    }
+
 }

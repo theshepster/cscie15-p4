@@ -26,7 +26,7 @@ class CardController extends Controller
      */
     public function index()
     {
-
+        return redirect()->route('home');
     }
 
     /**
@@ -88,17 +88,6 @@ class CardController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
         $card = Card::find($id);
 
         if ($card)
@@ -109,6 +98,17 @@ class CardController extends Controller
         {
             return redirect()->route('home');
         }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        return redirect()->route('cards.show', ['id' => $id]);
     }
 
     /**

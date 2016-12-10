@@ -14,8 +14,8 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         @if(Auth::check())
-                            <li @yield('login-active')>
-                                <a href="/logout">Logout</a>
+                            <li @yield('home-active')>
+                                <a href="/home">Home</a>
                             </li>
                         @else
                             <li @yield('login-active')>
@@ -29,6 +29,22 @@
                             </li>
                         @endif
                     </ul>
+                    @if(Auth::check())
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button" aria-haspopup="true"
+                                   aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="/logout">Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    @endif
                 </div>
             </div>
         </nav>
