@@ -7,22 +7,29 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Look at all the cards in {{ $deck->name }}!
                         @if (isset($cards[0]))
-                            <a href="/decks/review/{{ $deck->id }}" style="float: right; margin-left: 2em">Review Deck</a>
+                            Look at all the cards in {{ $deck->name }}!
+                        @else
+                            There are no cards in {{ $deck->name }}
                         @endif
-                        <a href="/cards/create/{{ $deck->id }}" style="float: right; margin-left: 2em">Create a New Card</a>
-                        <a href="/decks/{{ $deck->id }}/edit" style="float: right">Change Deck Name</a>
-
                     </div>
                     <div class="panel-body">
                         {{--TODO: make this look nice--}}
                         {{--TODO: add button for back to home--}}
-                        {{--TODO: add a button and create route to edit deck title--}}
+                        <div class="col-md-12">
+                            <div class="row">
+                                @if(!isset($cards[0]))
+                                    <a href="/cards/create/{{ $deck->id }}" class="btn btn-success form-control">Create Your First Card</a>
+                                @else
+                                    <a href="/decks/review/{{ $deck->id }}" class="btn btn-success">Review Deck</a>
+                                    <a href="/cards/create/{{ $deck->id }}" class="btn btn-info">Create a New Card</a>
+                                @endif
+                                <a href="/decks/{{ $deck->id }}/edit" class="btn btn-warning">Change Deck Name</a>
+                            </div>
+                        </div>
+                        <br><br><br>
+                        <div class="row">
                             @foreach($cards as $card)
-
-
-
                                 <div class="col-md-4">
                                     <div class="panel panel-default">
                                         <div class="panel-heading text-center">
@@ -33,17 +40,14 @@
                                             <form action="/cards/{{ $card->id }}" method="POST" style="display: inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <input type="submit" class="btn btn-danger" value="Delete">
+                                                <input style="float: right;" type="submit" class="btn btn-danger" value="Delete">
                                             </form>
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
                             @endforeach
-                        </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

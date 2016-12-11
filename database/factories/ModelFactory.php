@@ -25,7 +25,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Deck::class, function (Faker\Generator $faker) {
 
     return [
-        'name' => strtoupper($faker->safeColorName),
+        'name' => strtoupper($faker->domainWord),
         'user_id' => 1,
     ];
 });
@@ -33,9 +33,9 @@ $factory->define(App\Deck::class, function (Faker\Generator $faker) {
 $factory->define(App\Card::class, function (Faker\Generator $faker) {
 
     return [
-        'front' => $faker->sentence,
+        'front' => $faker->domainWord,
         'back' => $faker->sentence,
-        'deck_id' => factory(App\Deck::class)->create()->id,
+        'deck_id' => 1,
     ];
 });
 

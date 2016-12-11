@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-warning">
-                            A reset password email was sent, but it was trapped by Mailtrap.io!
+                            A password reset email was sent, but it was trapped by Mailtrap.io!
                         </div>
                     @endif
 

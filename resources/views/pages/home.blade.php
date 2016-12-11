@@ -10,7 +10,7 @@
                     <strong>Your Decks</strong>
                     <a href="/decks/create" class="" style="float: right">New Deck</a>
                 </div>
-                <br>
+                <div class="panel-body">
                     {{-- Display all existing decks --}}
                     @foreach($decks as $deck)
                         <div class="col-md-4">
@@ -32,7 +32,6 @@
                     @endforeach
 
                 {{-- Create a new deck --}}
-                <div class="panel-body">
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-heading text-center">

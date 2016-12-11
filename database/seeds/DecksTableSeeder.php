@@ -12,6 +12,13 @@ class DecksTableSeeder extends Seeder
     public function run()
     {
         // use factory to create decks
-        factory(App\Deck::class, 5)->create(['user_id' => 1]);
+        factory(App\Deck::class)->create([
+            'user_id' => 1,
+            'name' => "US Presidents"
+        ]);
+        factory(App\Deck::class)->create([
+            'user_id' => 1,
+            'name' => "Periodic Table of the Elements"
+        ]);
     }
 }
