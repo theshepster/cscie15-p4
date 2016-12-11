@@ -9,9 +9,15 @@
                 <div class="panel-heading">Reset Password</div>
                 <div class="panel-body">
                     @if (session('status'))
-                        <div class="alert alert-warning">
-                            A password reset email was sent, but it was trapped by Mailtrap.io!
-                        </div>
+                        @if (config('app.debug'))
+                            <div class="alert alert-warning">
+                                A password reset email was sent, but it was trapped by Mailtrap.io!
+                            </div>
+                        @else
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                     @endif
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
