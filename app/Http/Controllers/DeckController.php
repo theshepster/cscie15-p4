@@ -150,7 +150,6 @@ class DeckController extends Controller
         }
         else
         {
-//            TODO: Redirect to cards.create and alert user to create the first card for this deck
             return redirect()->route('decks.show', ['id' => $deck->id]);
         }
 
