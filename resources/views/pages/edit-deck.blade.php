@@ -13,10 +13,24 @@
                         <form method="post" action="/decks/{{ $deck->id }}">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
-                            <input class="form-control" type="text" name="name" value="{{ $deck->name }}">
-                            <br>
+                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <div class="col-md-12">
+                                    <input class="form-control"
+                                           type="text"
+                                           name="name"
+                                           placeholder="Deck name"
+                                           value="{{ $deck->name }}"
+                                           required
+                                           style="margin-bottom: 1em;"
+                                    >
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
+                                           <strong>{{ $errors->first('name') }}</strong>
+                                       </span>
+                                    @endif
+                                </div>
+                            </div>                            <br>
                             <a class="btn btn-danger" href="/decks/{{ $deck->id }}">Cancel</a>
-                            <input class="btn btn-default" type="reset" value="Reset">
                             <input class="btn btn-success" type="submit" value="Update" style="float: right;">
                         </form>
                     </div>

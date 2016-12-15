@@ -120,6 +120,12 @@ class CardController extends Controller
      */
     public function update(Request $request, $id)
     {
+        # make sure both fields are nonblank
+        $this->validate($request, [
+            'front' => 'required',
+            'back' => 'required',
+        ]);
+        
         $card = Card::find($id);
         $card->front = $request->input('front');
         $card->back = $request->input('back');

@@ -35,12 +35,45 @@
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-heading text-center">
-                                <input class="input" form="create-deck" type="text" name="name" placeholder="New Deck">
+
+
+
+                                Create a new deck!
+
+
+
+
+
+
+                                {{--<input class="input" form="create-deck" type="text" name="name" placeholder="New Deck">--}}
+
+
                             </div>
                             <div class="panel-body">
+
                                 <form id="create-deck" method="post" action="/decks">
                                     {{ csrf_field() }}
-                                    <input type="submit" class="btn btn-success" value="Create">
+                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                        <div class="col-md-12">
+                                            <input class="form-control"
+                                                   type="text"
+                                                   name="name"
+                                                   placeholder="New Deck"
+                                                   value="{{ old('name') }}"
+                                                   required
+                                            >
+                                            @if ($errors->has('name'))
+                                                <span class="help-block">
+                                               <strong>{{ $errors->first('name') }}</strong>
+                                           </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <input type="submit"
+                                           class="btn btn-success form-control"
+                                           value="Create"
+                                           style="margin-top: 1em"
+                                    >
                                 </form>
                             </div>
                         </div>

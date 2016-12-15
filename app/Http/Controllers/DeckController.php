@@ -47,6 +47,11 @@ class DeckController extends Controller
      */
     public function store(Request $request)
     {
+        # make sure the deck title is nonblank
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
         $deck = new Deck();
         $deck->name = $request->input('name');
         $user = \Auth::user();
@@ -99,6 +104,11 @@ class DeckController extends Controller
      */
     public function update(Request $request, $id)
     {
+        # make sure the deck title is nonblank
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
         $deck = Deck::find($id);
         $deck->name = $request->input('name');
         $deck->save();

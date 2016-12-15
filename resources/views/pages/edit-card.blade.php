@@ -19,8 +19,21 @@
                                         Front
                                     </div>
                                     <div class="panel-body">
-                                        <div class="col-md-12">
-                                            <input class="form-control" type="text" name="front" value="{{ $card->front }}">
+                                        <div class="form-group{{ $errors->has('front') ? ' has-error' : '' }}">
+                                            <div class="col-md-12">
+                                                <input class="form-control"
+                                                       type="text"
+                                                       name="front"
+                                                       value="{{ $card->front }}"
+                                                       required
+                                                       autofocus
+                                                >
+                                                @if ($errors->has('front'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('front') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -31,21 +44,26 @@
                                         Back
                                     </div>
                                     <div class="panel-body">
-                                        <input class="form-control" type="text" name="back" value="{{ $card->back }}">
+                                        <div class="form-group{{ $errors->has('back') ? ' has-error' : '' }}">
+                                            <div class="col-md-12">
+                                                <input class="form-control"
+                                                       type="text"
+                                                       name="back"
+                                                       value="{{ $card->back }}"
+                                                       required
+                                                >
+                                                @if ($errors->has('back'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('back') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <input class="btn btn-success" type="submit" name="save" value="Save" style="float: right">
                             <input type="hidden" name="deck_id" value="{{ $card->deck_id }}">
-
-                            {{--Display errors--}}
-                            @if(count($errors) > 0)
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            @endif
                         </form>
                         <a class="btn btn-danger" href="/decks/{{ $card->deck_id }}">Cancel</a>
                     </div>

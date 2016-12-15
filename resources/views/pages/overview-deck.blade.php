@@ -8,18 +8,17 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         @if (isset($cards[0]))
-                            Look at all the cards in {{ $deck->name }}!
+                            Deck: {{ $deck->name }}
                         @else
                             There are no cards in {{ $deck->name }}
                         @endif
+                        <a href="/home" style="float: right;;">Back</a>
                     </div>
                     <div class="panel-body">
-                        {{--TODO: make this look nice--}}
-                        {{--TODO: add button for back to home--}}
                         <div class="col-md-12">
                             <div class="row">
                                 @if(!isset($cards[0]))
-                                    <a href="/cards/create/{{ $deck->id }}" class="btn btn-success form-control">Create Your First Card</a>
+                                    <a href="/cards/create/{{ $deck->id }}" class="btn btn-success">Create Your First Card</a>
                                 @else
                                     <a href="/decks/review/{{ $deck->id }}" class="btn btn-success">Review Deck</a>
                                     <a href="/cards/create/{{ $deck->id }}" class="btn btn-info">Create a New Card</a>

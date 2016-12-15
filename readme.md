@@ -1,27 +1,48 @@
-# Laravel PHP Framework
+# CSCIE 15, Project 4 - Flashy Cards
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Author
+Shep Moore-Berg
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Due Date
+December 15, 2016
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Project Website
+<a href="http://p4.mooreberg.me">p4.mooreberg.me</a>
 
-## Official Documentation
+## Screencast Demo
+TODO
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Planning Doc
+<a href="https://docs.google.com/document/d/1sbzDPhZIAO5MsVqI-0ghG9VE54GE64_q6Ys8hOTvMqI/">Click for planning doc</a>
 
-## Contributing
+## CRUD Interactions
+CRUD interactions happen for both decks and for cards.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+##### Decks:
+* Create a deck on the ```/home``` route by clicking "New Deck" or by using the form.
+* Read a deck by clicking Edit on the ```/home``` route, which will show the contents of the deck. See all decks in the ```/home``` route, and review a deck card-by-card by clicking Review Deck.
+* Update a deck's title by clicking "Change Deck Name" in the Edit Deck route ```\deck\{deck_id}```, and delete cards from a deck there too.
+* Delete a deck from the ```\home``` route by clicking the red Delete button.
 
-## Security Vulnerabilities
+##### Cards:
+* Create a card by clicking the blue "Create a New Card" button from the ```\deck\{deck_id}``` route. Also, create a new card immediately after naming a new deck.
+* Read a card by clicking Edit on the ```\deck\{deck_id}``` route, which will show the front and back of the card. See a card in a deck also by clicking Review for the deck.
+* Update a deck's front and back fields by clicking Edit on the ```\deck\{deck_id}``` route.
+* Delete a card from the deck by clicking the red Delete button on the ```\deck\{deck_id}``` route.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+## Overview
+This web app is a flashycard study app. Use it to create decks of flashcards, create cards within those decks, and review flashcards.
 
-## License
+## Libraries Used
+I used the barryvdh/laravel-ide-helper package in my development environemtn. I used the fzaninotto/faker in the database seeders, and I used the barryvdh/laravel-debugbar for development.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+## Sources
+I used:
+* Bootstrap for the CSS.
+* <a href="https://pinegrow.com">Pinegrow</a> for the homepage template. 
+* Images sourced from either <a href="https://www.pexels.com/">Pexels</a>, which hosts free stock photos, or from Google Image Search.
+
+## Other Resources
+I used:
+* <a href="https://mailtrap.io">Mailtrap.io</a> for testing password-reset emails in development.
+* <a href="https://sendinblue.com">Send in Blue</a> for sending password-reset emails in production.
