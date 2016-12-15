@@ -10,10 +10,13 @@ December 15, 2016
 <a href="http://p4.mooreberg.me">p4.mooreberg.me</a>
 
 ## Screencast Demo
-TODO
+<a href="https://youtu.be/LBt5BUVm4VU">Click for demo</a>
 
 ## Planning Doc
 <a href="https://docs.google.com/document/d/1sbzDPhZIAO5MsVqI-0ghG9VE54GE64_q6Ys8hOTvMqI/">Click for planning doc</a>
+
+## Overview
+This web app is a flashycard study app. Use it to create decks of flashcards, create cards within those decks, and review flashcards.
 
 ## CRUD Interactions
 CRUD interactions happen for both decks and for cards.
@@ -29,9 +32,6 @@ CRUD interactions happen for both decks and for cards.
 * Read a card by clicking Edit on the ```\deck\{deck_id}``` route, which will show the front and back of the card. See a card in a deck also by clicking Review for the deck.
 * Update a deck's front and back fields by clicking Edit on the ```\deck\{deck_id}``` route.
 * Delete a card from the deck by clicking the red Delete button on the ```\deck\{deck_id}``` route.
-
-## Overview
-This web app is a flashycard study app. Use it to create decks of flashcards, create cards within those decks, and review flashcards.
 
 ## Libraries Used
 I used the barryvdh/laravel-ide-helper package in my development environemtn. I used the fzaninotto/faker in the database seeders, and I used the barryvdh/laravel-debugbar for development.
